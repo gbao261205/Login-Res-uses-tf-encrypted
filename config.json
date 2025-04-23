@@ -1,0 +1,17 @@
+{
+    "players": [
+      {
+        "name": "alice",
+        "host": "localhost:4000"
+      },
+      {
+        "name": "bob",
+        "host": "localhost:4001"
+      },
+      {
+        "name": "crypto-producer",
+        "host": "localhost:4002"
+      }
+    ]
+  }
+  

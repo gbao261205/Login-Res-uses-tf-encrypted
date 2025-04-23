@@ -84,7 +84,7 @@ def login():
         if user:
             return render_template('success.html', username_enc=user['username_enc'], password_enc=user['password_enc'])
         else:
-            return "Đăng nhập thất bại. Sai thông tin."
+            return render_template('not_success.html')
     return render_template('login.html')
 
 if __name__ == '__main__':
