@@ -72,7 +72,7 @@ def register():
         username = request.form['username']
         password = request.form['password']
         save_user(username, password)
-        return render_template('success.html', username_enc=encrypt_text(username).tolist(), password_enc=encrypt_text(password).tolist())
+        return render_template('res_success.html', username_enc=encrypt_text(username).tolist(), password_enc=encrypt_text(password).tolist())
     return render_template('register.html')
 
 @app.route('/login', methods=['GET', 'POST'])
