@@ -1,3 +1,4 @@
+<!-- login -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -172,6 +173,14 @@
     text-decoration: underline;  
     }
   </style>
+
+  <script>
+    function togglePassword() {
+      const pass = document.getElementById("password");
+      pass.type = pass.type === "password" ? "text" : "password";
+    }
+    
+  </script>
 </head>
 <body>  
     <div class="login-container">  
@@ -184,6 +193,8 @@
         <div class="form-group">  
           <label for="password">Mật khẩu:</label>  
           <input type="password" name="password" placeholder="Nhập mật khẩu" id="password" required>  
+          <span onclick="togglePassword()" style="position:absolute; right:10px; top:34px; cursor:pointer;">🙈</span>
+
         </div>  
         <input type="submit" value="Đăng nhập">  
       </form>  
