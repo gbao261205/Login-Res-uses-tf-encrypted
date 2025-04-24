@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, render_template
+from flask import Flask, request, redirect, render_template, url_for
 import json
 import tf_encrypted as tfe
 import numpy as np
@@ -54,6 +54,7 @@ def save_user(username, password):
 
 def check_login(username, password):
     users = load_users()
+    print(users)
     username_enc = encrypt_text(username).tolist()
     password_enc = encrypt_text(password).tolist()
     for user in users:
@@ -64,7 +65,7 @@ def check_login(username, password):
 
 @app.route('/')
 def home():
-    return render_template('login.html')  # mặc định đưa tới trang đăng nhập
+    return redirect(url_for('login'))  # mặc định đưa tới trang đăng nhập
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -81,7 +82,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
         user = check_login(username, password)
-        if user:
+        if user and user!=None:
             return render_template('success.html', username_enc=user['username_enc'], password_enc=user['password_enc'])
         else:
             return render_template('not_success.html')
